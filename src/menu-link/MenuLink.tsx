@@ -1,15 +1,16 @@
+import './menu-links.styles.scss';
+
 type Props = {
   text: string,
   icon: string,
 }
 
 const MenuLink = ({ icon, text }: Props) => (
-  <div>
+  <div className="nav__dropdown-links">
     <i className="material-icons">
       {icon}
     </i>
-
-    {text}
+    <div className="nav__dropdown-text">{text}</div>
   </div>
 )
 

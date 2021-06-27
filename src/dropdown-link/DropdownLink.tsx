@@ -1,30 +1,33 @@
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-
-import { ReduxState } from './types'
-import { getIsDropdownMenuVisible } from './selectors'
-import { toggleDropdownMenuVisibility } from './actions'
-
-import DropdownMenu from './DropdownMenu'
+import { ReduxState } from '../types/types'
+import { getIsDropdownMenuVisible, getSelectedCompanyName } from '../store/selectors'
+import { toggleDropdownMenuVisibility } from '../store/actions'
+import DropdownMenu from '../dropdown-menu/DropdownMenu'
 
 type ReduxProps = {
   isDropdownMenuVisible: boolean,
+  selectedCompanyName: string | null,
 }
 
 type DispatchProps = {
   toggleDropdownMenuVisibility: () => void,
 }
 
-export const DropdownLink = ({ isDropdownMenuVisible, toggleDropdownMenuVisibility }: ReduxProps & DispatchProps) => (
+export const DropdownLink = ({isDropdownMenuVisible, selectedCompanyName, toggleDropdownMenuVisibility }: ReduxProps & DispatchProps) => (
   <>
-    <div className="nav__link" onClick={toggleDropdownMenuVisibility} data-test-nav-link>
+    <div
+      className={`nav__link ${(!isDropdownMenuVisible ? '' : 'nav__visible')}`}
+      onClick={toggleDropdownMenuVisibility}
+      data-test-nav-link
+    >
       <div className="nav__link-text-wrapper">
         <div className="nav__link-text">
           Elon Musk
         </div>
 
         <div className="nav__link-subtext">
-          Viljatootja AS
+          {selectedCompanyName}
         </div>
       </div>
 
@@ -41,6 +44,7 @@ export const DropdownLink = ({ isDropdownMenuVisible, toggleDropdownMenuVisibili
 export default connect(
   createStructuredSelector<ReduxState, ReduxProps>({
     isDropdownMenuVisible: getIsDropdownMenuVisible,
+    selectedCompanyName: getSelectedCompanyName,
   }),
   { toggleDropdownMenuVisibility }
 )(DropdownLink)

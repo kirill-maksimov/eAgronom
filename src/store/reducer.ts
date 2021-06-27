@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { createReducer } from 'typesafe-actions'
 
-import { Action, Company } from './types'
+import { Action, Company } from '../types/types'
 import * as actions from './actions'
 
 export const isDropdownMenuVisible = createReducer<boolean, Action>(false)
@@ -9,11 +9,17 @@ export const isDropdownMenuVisible = createReducer<boolean, Action>(false)
   
 export const selectedCompanyId = createReducer<number | null, Action>(null)
   .handleAction(actions.setSelectedCompanyId, (_, action) => action.payload)
+
+export const selectedCompanyName = createReducer<string | null, Action>(null)
+  .handleAction(actions.setSelectedCompanyName, (_, action) => {
+    return action.payload;
+  })
   
 export const companies = createReducer<Array<Company>, Action>([])
 
 export default combineReducers({
   isDropdownMenuVisible,
   selectedCompanyId,
+  selectedCompanyName,
   companies,
 })

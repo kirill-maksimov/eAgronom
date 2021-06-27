@@ -3,11 +3,12 @@ import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import reducer from './reducer'
-import { ReduxState } from './types'
+import { ReduxState } from '../types/types'
 
 const initialState: ReduxState = {
   isDropdownMenuVisible: false,
   selectedCompanyId: 1,
+  selectedCompanyName: 'Viljatootja AS',
   companies: [
     { id: 1, name: 'Viljatootja AS' },
     { id: 2, name: 'Tartu Agro OÜ' },

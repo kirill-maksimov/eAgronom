@@ -1,0 +1,26 @@
+.nav__dropdown-companies {
+  padding: 7px 13px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.nav__dropdown-selected {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #37A44733 !important;;
+  color: #157123;
+
+}
+
+.nav__dropdown-companies:hover {
+  background: #37A4471A;
+}
+
+.nav__dropdown-companies:active {
+  background: #37A4471A;
+}

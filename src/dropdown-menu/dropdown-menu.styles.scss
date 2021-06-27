@@ -1,0 +1,26 @@
+.list__dropdown-companies {
+  height: 329px;
+  width: 304px;
+  left: 103px;
+  top: 107px;
+  border-radius: 8px;
+  border: 1px solid #DCDCE0;
+  box-shadow: 0px 2px 8px 0px #3333333D;
+}
+
+.list__dropdown-companies:last-child div:first-child {
+  margin-top: 2px;
+}
+
+.list__dropdown-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.list__dropdown-links:last-child > div:nth-child(3) {
+  border-bottom: 1px solid #DCDCE0;
+}
+
+.list__dropdown-links:last-child > div:last-child {
+  color: red;
+}
